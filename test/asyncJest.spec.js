@@ -10,19 +10,24 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('1 - O retorno do telefonema', () => {
-  test('atende', async () => {
+  test('atende', () => {
     // Código com .then
-    /*  answerPhone('param').then((response) => {
-       expect(response).toEqual('Oi!');
-     }); */
+    /* expect.assertions(1);
+    answerPhone(true).then((response) => {
+      expect(response).toEqual('Oi!');
+    }); */
 
     // código com async/await
+    /* const response = await answerPhone(true);
+    expect(response).toBe('Oi!'); */
+
+    // Código com resolves;
     expect.assertions(1);
-    const response = await answerPhone(true);
-    expect(response).toEqual('Oi!');
+    expect(answerPhone(true)).resolves.toBe('Oi!');
   });
 
   test('ocupado', async () => {
+    // Código com await.
     expect.assertions(1);
     try {
       await answerPhone(false);
