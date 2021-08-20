@@ -23,16 +23,20 @@ describe('1 - O retorno do telefonema', () => {
 
     // Código com resolves;
     expect.assertions(1);
-    expect(answerPhone(true)).resolves.toBe('Oi!');
+    return expect(answerPhone(true)).resolves.toBe('Oi!');
   });
 
-  test('ocupado', async () => {
+  test('ocupado', () => {
     // Código com await.
-    expect.assertions(1);
+    /* expect.assertions(1);
     try {
       await answerPhone(false);
     } catch (error) {
       expect(error.message).toBe('Infelizmente não podemos atender...');
-    }
+    } */
+
+    expect.assertions(1);
+    return expect(answerPhone(false)).rejects
+      .toEqual(new Error('Infelizmente não podemos atender...'));
   });
 });
